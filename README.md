@@ -59,6 +59,9 @@ plainObject({
                         eleven: Buffer.from("ftonato", "utf-8"),
                         twelve: {
                           twelve: new RegExp("[A-Za-z0-9_]"),
+                          thirteen: {
+                            thirteen: new Promise((resolve) => resolve(true)),
+                          },
                         },
                       },
                     },
@@ -86,5 +89,6 @@ plainObject({
 //=>   nine: 1,
 //=>   ten: Symbol(Sym),
 //=>   eleven: <Buffer 66 74 6f 6e 61 74 6f>,
-//=>   twelve: /[A-Za-z0-9_]/ }
+//=>   twelve: /[A-Za-z0-9_]/,
+//=>   thirteen: Promise { true } }
 ```
