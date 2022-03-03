@@ -1,4 +1,7 @@
 const MOCK_DATE = new Date();
+const MOCK_BIGINT = BigInt(Number.MAX_SAFE_INTEGER + 1);
+const MOCK_BUFFER = Buffer.from("ftonato", "utf-8");
+
 const MOCK = {
   one: {
     one: "1",
@@ -19,11 +22,11 @@ const MOCK = {
                 eight: {
                   eight: new Set(),
                   nine: {
-                    nine: BigInt(Number.MAX_SAFE_INTEGER + 1),
+                    nine: MOCK_BIGINT,
                     ten: {
                       ten: Symbol("Sym"),
                       eleven: {
-                        eleven: {},
+                        eleven: MOCK_BUFFER,
                       },
                     },
                   },
@@ -40,4 +43,6 @@ const MOCK = {
 module.exports = {
   MOCK,
   MOCK_DATE,
+  MOCK_BIGINT,
+  MOCK_BUFFER,
 };

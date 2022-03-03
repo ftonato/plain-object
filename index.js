@@ -23,6 +23,7 @@ function plainObject(obj, response = {}) {
       is.set(value) ||
       is.bigint(value) ||
       is.symbol(value) ||
+      is.buffer(value) ||
       isValidNumber(value)
     ) {
       response[key] = value;

@@ -1,7 +1,7 @@
 const plainObject = require("./index.js");
-const { MOCK, MOCK_DATE } = require("./mock.js");
+const { MOCK, MOCK_DATE, MOCK_BIGINT, MOCK_BUFFER } = require("./mock.js");
 
-describe("plainObject", () => {
+describe("[plain-object pkg] plainObject method", () => {
   it("plain object using [string]", () => {
     const data = {
       one: {
@@ -138,11 +138,9 @@ describe("plainObject", () => {
   });
 
   it("plain object using [bigint]", () => {
-    const bigint = BigInt(Number.MAX_SAFE_INTEGER + 1);
-
     const data = {
       one: {
-        one: bigint,
+        one: MOCK_BIGINT,
         two: {
           two: false,
         },
@@ -150,7 +148,7 @@ describe("plainObject", () => {
     };
 
     const expected = {
-      one: bigint,
+      one: MOCK_BIGINT,
       two: false,
     };
     expect(plainObject(data)).toEqual(expected);
@@ -175,6 +173,23 @@ describe("plainObject", () => {
     expect(plainObject(data)).toEqual(expected);
   });
 
+  it("plain object using [buffer]", () => {
+    const data = {
+      one: {
+        one: [1, 2, 3],
+        two: {
+          two: MOCK_BUFFER,
+        },
+      },
+    };
+
+    const expected = {
+      one: [1, 2, 3],
+      two: MOCK_BUFFER,
+    };
+    expect(plainObject(data)).toEqual(expected);
+  });
+
   it("plain object using all types", () => {
     const expected = {
       one: "1",
@@ -187,12 +202,13 @@ describe("plainObject", () => {
       },
       seven: new Map(),
       eight: new Set(),
-      nine: BigInt(Number.MAX_SAFE_INTEGER + 1).toString(),
+      nine: MOCK_BIGINT.toString(),
       ten: Symbol("Sym"),
+      eleven: MOCK_BUFFER,
     };
 
     const result = plainObject(MOCK);
-    result.nine = BigInt(Number.MAX_SAFE_INTEGER + 1).toString();
+    result.nine = MOCK_BIGINT.toString();
 
     expect(JSON.stringify(result)).toEqual(JSON.stringify(expected));
   });
