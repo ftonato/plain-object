@@ -56,7 +56,7 @@ plainObject({
                     ten: {
                       ten: Symbol("Sym"),
                       eleven: {
-                        eleven: {},
+                        eleven: Buffer.from("ftonato", "utf-8"),
                       },
                     },
                   },
@@ -81,5 +81,6 @@ plainObject({
 //=>   seven: Map {  },
 //=>   eight: Set {  },
 //=>   nine: 1,
-//=>   ten: Symbol(Sym) }
+//=>   ten: Symbol(Sym),
+//=>   eleven: <Buffer 66 74 6f 6e 61 74 6f> }
 ```
