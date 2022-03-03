@@ -25,6 +25,7 @@ function plainObject(obj, response = {}) {
       is.symbol(value) ||
       is.buffer(value) ||
       is.regExp(value) ||
+      is.promise(value) ||
       isValidNumber(value)
     ) {
       response[key] = value;
