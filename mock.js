@@ -1,6 +1,7 @@
 const MOCK_DATE = new Date();
 const MOCK_BIGINT = BigInt(Number.MAX_SAFE_INTEGER + 1);
 const MOCK_BUFFER = Buffer.from("ftonato", "utf-8");
+const MOCK_REGEXP = new RegExp("[A-Za-z0-9_]");
 
 const MOCK = {
   one: {
@@ -27,6 +28,9 @@ const MOCK = {
                       ten: Symbol("Sym"),
                       eleven: {
                         eleven: MOCK_BUFFER,
+                        twelve: {
+                          twelve: MOCK_REGEXP,
+                        },
                       },
                     },
                   },
@@ -45,4 +49,5 @@ module.exports = {
   MOCK_DATE,
   MOCK_BIGINT,
   MOCK_BUFFER,
+  MOCK_REGEXP,
 };

@@ -1,5 +1,11 @@
 const plainObject = require("./index.js");
-const { MOCK, MOCK_DATE, MOCK_BIGINT, MOCK_BUFFER } = require("./mock.js");
+const {
+  MOCK,
+  MOCK_DATE,
+  MOCK_BIGINT,
+  MOCK_BUFFER,
+  MOCK_REGEXP,
+} = require("./mock.js");
 
 describe("[plain-object pkg] plainObject method", () => {
   it("plain object using [string]", () => {
@@ -190,6 +196,23 @@ describe("[plain-object pkg] plainObject method", () => {
     expect(plainObject(data)).toEqual(expected);
   });
 
+  it("plain object using [regexp]", () => {
+    const data = {
+      one: {
+        one: [1, 2, 3],
+        two: {
+          two: MOCK_REGEXP,
+        },
+      },
+    };
+
+    const expected = {
+      one: [1, 2, 3],
+      two: MOCK_REGEXP,
+    };
+    expect(plainObject(data)).toEqual(expected);
+  });
+
   it("plain object using all types", () => {
     const expected = {
       one: "1",
@@ -205,6 +228,7 @@ describe("[plain-object pkg] plainObject method", () => {
       nine: MOCK_BIGINT.toString(),
       ten: Symbol("Sym"),
       eleven: MOCK_BUFFER,
+      twelve: MOCK_REGEXP,
     };
 
     const result = plainObject(MOCK);
