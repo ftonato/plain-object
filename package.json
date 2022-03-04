@@ -1,6 +1,6 @@
 {
   "name": "plain-object",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Convert nested JSON to simple plain JSON object",
   "license": "MIT",
   "author": "Ademílson F. Tonato <ademilsonft@outlook.com>",
@@ -8,18 +8,26 @@
     "type": "git",
     "url": "git://github.com/ftonato/plain-object.git"
   },
-  "main": "main.js",
+  "main": "dist/main.js",
   "scripts": {
-    "build": "rollup -c",
-    "test": "jest"
+    "build": "rollup -c rollup.config.js",
+    "test": "jest --no-cache"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "dependencies": {
     "@sindresorhus/is": "^4.6.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@types/jest": "^27.4.1",
     "jest": "^27.5.1",
     "rollup": "^2.69.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^27.1.3",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
   },
   "keywords": [
     "object",

@@ -1,16 +1,20 @@
 const is = require("@sindresorhus/is");
 
-function isValidNumber(value) {
-  return is.number(value) && !isNaN(value);
+interface GenericObject {
+  [key: string]: any;
 }
 
-function isValidObject(value) {
+function isValidNumber(value: GenericObject): boolean {
+  return is.number(value) && !isNaN(+value);
+}
+
+function isValidObject(value: GenericObject): boolean {
   return is.object(value) && !is.null(value);
 }
 
-function plainObject(obj, response = {}) {
-  for (let key in obj) {
-    const value = obj[key];
+function plainObject(data: any, response: GenericObject = {}): GenericObject {
+  for (let key in data) {
+    const value = data[key];
     const type = typeof value;
 
     if (
