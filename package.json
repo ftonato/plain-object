@@ -1,6 +1,6 @@
 {
   "name": "plain-object",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Convert nested JSON to simple plain JSON object",
   "license": "MIT",
   "author": "Ademílson F. Tonato <ademilsonft@outlook.com>",
