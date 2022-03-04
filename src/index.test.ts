@@ -1,12 +1,13 @@
-const plainObject = require("./index.js");
-const {
+const plainObject = require("./index.ts");
+
+import {
   MOCK,
   MOCK_DATE,
   MOCK_BIGINT,
   MOCK_BUFFER,
   MOCK_REGEXP,
   MOCK_PROMISE,
-} = require("./mock.js");
+} from "./mock";
 
 describe("[plain-object pkg] plainObject method", () => {
   it("plain object using [string]", () => {

@@ -48,11 +48,4 @@ const MOCK = {
   },
 };
 
-module.exports = {
-  MOCK,
-  MOCK_DATE,
-  MOCK_BIGINT,
-  MOCK_BUFFER,
-  MOCK_REGEXP,
-  MOCK_PROMISE,
-};
+export { MOCK, MOCK_DATE, MOCK_BIGINT, MOCK_BUFFER, MOCK_REGEXP, MOCK_PROMISE };
